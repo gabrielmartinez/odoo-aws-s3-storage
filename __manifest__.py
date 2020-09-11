@@ -14,8 +14,8 @@
         used instead of the file system for binary files storage.
     """,
 
-    'author': "brolycjw, hp-bkeys",
-    'website': "http://primetechnologies.com.sg/, https://homeprotech.com/",
+    'author': "gabrielmartinez, marstom",
+    'website': "https://marstom.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
