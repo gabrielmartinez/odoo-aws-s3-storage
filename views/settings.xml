@@ -1,0 +1,72 @@
+<odoo>
+    <record id="odoo_s3_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sale</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Odoo S3 Storage" string="Odoo S3 Storage" data-key="odoo-s3-storage">
+                    <h2>Odoo Amazon S3 Storage</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div id="odoo_s3_access_key_settings_google_firebase"
+                             class="col-12 col-lg-12 o_setting_box"
+                             title="AWS Access Key.">
+                            <div class="o_setting_right_pane">
+                                <label for="aws_access_key"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="aws_access_key"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="aws_secret_key"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="aws_secret_key"  password="True"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="aws_region"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="aws_region"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="aws_bucket_name"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="aws_bucket_name"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="aws_s3_storage_enable"/>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <field name="aws_s3_storage_enable"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+     <record id="action_odoo_s3_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="odoo_s3_config_settings_view_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'odoo-s3-storage'}</field>
+    </record>
+    <menuitem id="odoo-s3_settings_menu" name="Odoo AWS S3 settings"
+        parent="base.menu_config" action="action_odoo_s3_config_settings"/>
+</odoo>
